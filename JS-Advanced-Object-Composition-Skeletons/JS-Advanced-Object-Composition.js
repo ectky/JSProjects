@@ -48,50 +48,116 @@
 //     return myObj;
 // }
 
-let extensions = ( function () {
-    String.prototype.ensureStart = function (str) {
-        if (this.startsWith(str)) {
-            return this.toString();
-        }
+// let extensions = ( function () {
+//     String.prototype.ensureStart = function (str) {
+//         if (this.startsWith(str)) {
+//             return this.toString();
+//         }
 
-        return str + this;
-    };
+//         return str + this;
+//     };
 
-    String.prototype.ensureEnd = function (str) {
-        if (this.endsWith(str)) {
-            return this.toString();
-        }
+//     String.prototype.ensureEnd = function (str) {
+//         if (this.endsWith(str)) {
+//             return this.toString();
+//         }
 
-        return this + str;
-    };
+//         return this + str;
+//     };
 
-    String.prototype.isEmpty = function () {
-        return this.length === 0;
-    };
+//     String.prototype.isEmpty = function () {
+//         return this.length === 0;
+//     };
 
-    String.prototype.truncate = function (n) {
-        if (n < 4) {
-            return '.'.repeat(n);
-        }
+//     String.prototype.truncate = function (n) {
+//         if (n < 4) {
+//             return '.'.repeat(n);
+//         }
 
-        if (this.length <= n) {
-            return this.toString();
-        }
+//         if (this.length <= n) {
+//             return this.toString();
+//         }
 
-        const lastIndexOfSpace = this.toString().lastIndexOf(' ');
+//         const lastIndexOfSpace = this.toString().substr(0, n - 2).lastIndexOf(' ');
 
-        if (lastIndexOfSpace !== -1) {
-            return this.substr(0, lastIndexOfSpace) + '...';
-        } else {
-            return this.substr(0, n - 3) + '...';
-        }
-    };
+//         if (lastIndexOfSpace !== -1) {
+//             return this.substr(0, lastIndexOfSpace) + '...';
+//         } else {
+//             return this.substr(0, n - 3) + '...';
+//         }
+//     };
 
-    String.prototype.format = function (str, ...args) {
-        if (this.startsWith(str)) {
-            return this.toString();
-        }
+//     String.format = function (str, ...args) {
+//         for (let i = 0; i < args.length; i++) {
+//             const el = args[i];
+//             str = str.replace(`${i}`, args[i]);
+//         }
 
-        return str + this;
-    };
-})();
+//         return str.toString();
+//     };
+// })();
+
+// function solve() {
+//     let collection = (() => {
+//         let list = [];
+//         let size = 0;
+
+//         const sort = function(){
+//             list = list.sort(a,b => a - b);
+//         };
+    
+//         const add = function(element){
+//             list.push(element);
+//             size++;
+    
+//             sort();
+//         };
+    
+//         const remove = function(index){
+//             if (!(index >= list.length || index < 0)) {
+//                 list.splice(index, 1);
+//                 size--;
+    
+//                 sort();
+//             }
+    
+//         };
+    
+//         const get = function(index){
+//             if (!(index >= list.length || index < 0)) {
+//                 return list[index];
+                
+//                 sort();
+//             }
+//         }
+
+//         return {
+//             add,
+//             remove,
+//             get,
+//             size
+//         }
+//     })();
+
+//     return collection;
+// }
+
+// function solve(selector) {
+//     const htmlElemnt = document.querySelector(selector);
+//     htmlElemnt.classList.add('highlight');
+
+//     highlightChildren(htmlElemnt);
+
+//     function highlightChildren(element) {
+//         const children = element.children;
+
+//         if (children.length === 0) {
+//             return;
+//         }
+
+//         for (let i = 0; i < children.length; i++) {
+//             highlightChildren(children[i]);
+//             children[i].classList.add('highlight');
+//         }
+//     }
+// }
